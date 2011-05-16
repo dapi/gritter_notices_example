@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.6'
@@ -6,6 +7,8 @@ gem 'rails', '3.0.6'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+
+gem 'gritter_notices'
 
 # Use unicorn as the web server
 # gem 'unicorn'

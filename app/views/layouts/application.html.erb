@@ -3,12 +3,26 @@
 <head>
   <title>GritterNoticesExample</title>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
+  <!-- <%= javascript_include_tag :defaults %> -->
+  <%= include_gritter_and_jquery %>
   <%= csrf_meta_tag %>
 </head>
 <body>
+  <%= gflash %>
+  <%= gritter_flash_messages %>
 
+<h1><a href='https://github.com/dapi/gritter_notices'>gritter_notices</a> пример</h1>
+<ul id='users'>
+Смена текущего пользователя (вместо логина):
+<% User.all.each do |user| %>
+<% if current_user==user %>
+<li><b><%=user.name %></b></li>
+<% else %>
+<li><%= link_to user.name, root_path(:current_user_id=>user.id) %></li>
+<% end %>
+<% end %>
 <%= yield %>
+</ul>
 
 </body>
 </html>

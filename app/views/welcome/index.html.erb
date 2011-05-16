@@ -1,0 +1,31 @@
+
+<h2>Посылаем сообщение</h2>
+
+<%= form_tag '/notice' do %>
+<div>
+  <%= label_tag 'Кому' %>
+  <%= select_tag 'user_id', options_from_collection_for_select(User.all, 'id', 'name') %>
+</div>
+
+<div>
+  <%= label_tag 'Сообщение' %>
+  <%= text_area_tag 'message' %>
+</div>
+
+<div>
+  <%= label_tag 'Иконка' %>
+  <%= select_tag 'level', [:success,:warning,:notice,:error,:progress].map {|i| '<option>'+i.to_s+'</option>' }.join.html_safe %>
+</div>
+<div>
+  <%= label_tag 'Sticky' %>
+  <%= check_box_tag  'sticky' %>
+</div>
+<div>
+  <%= submit_tag 'Отправить' %>
+</div>
+
+<% end %>
+
+<% if action_name=='notice' and params[:user_id].to_i!=current_user.id and params[:user_id]%>
+<p>Войдите под пользователем <a href='/?current_user_id=<%= params[:user_id] %>'><%= User.find(params[:user_id]).name %></a> чтобы видеть отправленные ему сообщения</p>
+<% end %>
