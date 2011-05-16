@@ -4,3 +4,5 @@
    > rake db:migrate
    > rake db:seed
    > rails s
+
+Развернутый проект http://gritter-notices-example.heroku.com/
