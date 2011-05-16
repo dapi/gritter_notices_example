@@ -11,7 +11,7 @@
   <%= gflash %>
   <%= gritter_flash_messages %>
 
-<h1><a href='https://github.com/dapi/gritter_notices'>gritter_notices</a> пример</h1>
+<h1>Пример использования <a href='https://github.com/dapi/gritter_notices'>gritter_notices</a></h1>
 <ul id='users'>
 Смена текущего пользователя (вместо логина):
 <% User.all.each do |user| %>
@@ -21,8 +21,11 @@
 <li><%= link_to user.name, root_path(:current_user_id=>user.id) %></li>
 <% end %>
 <% end %>
-<%= yield %>
 </ul>
 
+<%= yield %>
+
+<hr/>
+<p><a href='http://github.com/dapi/gritter_notices_example'>github</a></p>
 </body>
 </html>
